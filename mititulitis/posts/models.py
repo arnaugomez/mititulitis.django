@@ -22,10 +22,16 @@ class Post(models.Model):
         "Post", on_delete=models.SET_NULL, blank=True, null=True, related_name="remixes"
     )
 
+    def __str__(self):
+        return self.title
+
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="likes")
     post = models.ForeignKey("Post", on_delete=models.CASCADE, related_name="likes")
+
+    def __str__(self):
+        return f"User {self.user.username} liked post \"{self.post.title}\""
 
 
 class Comment(models.Model):
@@ -37,3 +43,6 @@ class Comment(models.Model):
     comment = models.ForeignKey(
         "Comment", on_delete=models.CASCADE, related_name="comments"
     )
+
+    def __str__(self):
+        return self.title
