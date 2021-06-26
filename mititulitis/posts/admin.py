@@ -10,7 +10,7 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Like)
 class LikeAdmin(admin.ModelAdmin):
-    list_display = ("created",)
+    list_display = ("__str__", "created",)
 
 
 @admin.register(Comment)

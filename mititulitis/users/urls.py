@@ -18,8 +18,12 @@ DJOSER URLS
 """
 
 from django.urls import path, include
+from .views import UpdateProfile, GetProfileOfUser
 
+BASE_PATH = "profile/"
 urlpatterns = [
     path("", include("djoser.urls")),
     path("", include("djoser.urls.authtoken")),
+    path(BASE_PATH + "get/user/<int:pk>/", GetProfileOfUser.as_view()),
+    path(BASE_PATH + "update/<int:pk>/", UpdateProfile.as_view()),
 ]
