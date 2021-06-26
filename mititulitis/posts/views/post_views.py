@@ -22,7 +22,7 @@ class GetPost(generics.RetrieveAPIView):
     lookup_field = "slug"
 
 
-class GetPostsByUser(generics.ListAPIView):
+class GetPostsOfUser(generics.ListAPIView):
     serializer_class = PostSerializer
 
     def get_queryset(self):
