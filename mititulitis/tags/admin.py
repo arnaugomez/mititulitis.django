@@ -4,4 +4,5 @@ from .models import Tag
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    list_display = ("name", "is_certificate", "created")
+    list_display = ("name", "slug", "is_certificate", "created")
+    prepopulated_fields = {"slug": ("name",)}

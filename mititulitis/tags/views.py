@@ -9,6 +9,7 @@ class CreateTag(generics.CreateAPIView):
 
 
 class GetTag(generics.RetrieveAPIView):
+    lookup_field = "slug"
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
 
